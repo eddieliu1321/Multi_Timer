@@ -3,6 +3,7 @@ package com.example.eddie.multi_timer;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import java.util.concurrent.Callable;
@@ -45,12 +46,12 @@ public class SecondsTimer extends CountDownTimer {
     }
 
 
+
     public void onFinish()  {
         view.setText("Completed.");
     }
 
     public void onTick (long millis) {
-        timeLeft = millis;
         String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
                 TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(
                         TimeUnit.MILLISECONDS.toHours(millis)),

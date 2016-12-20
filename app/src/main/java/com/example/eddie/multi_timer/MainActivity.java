@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnStart, btnStop, btnStart2, btnStop2;
     TextView textViewTime, textViewTime2;
+    NumberPicker hours, mins, secs;
+    SecondsTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         textViewTime.setText("00:00:00");
 
-        NumberPicker hours = (NumberPicker) findViewById(R.id.hourscroll);
-        NumberPicker mins = (NumberPicker) findViewById(R.id.minsscroll);
-        NumberPicker secs = (NumberPicker) findViewById(R.id.secscroll);
+        hours = (NumberPicker) findViewById(R.id.hourscroll);
+        mins = (NumberPicker) findViewById(R.id.minsscroll);
+        secs = (NumberPicker) findViewById(R.id.secscroll);
 
         /*String[] dispHrs = {"00","01","02","03"};
         String[] dispMins = new String[60];
@@ -72,6 +74,23 @@ public class MainActivity extends AppCompatActivity {
         hours.setWrapSelectorWheel(true);
         mins.setWrapSelectorWheel(true);
         secs.setWrapSelectorWheel(true);
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int timeInSecs = hours.getValue() * 3600 + mins.getValue() * 60 + secs.getValue();
+                timer = new SecondsTimer(timeInSecs, 1, textViewTime);
+                timer.start();
+            }
+        });
+        btnStop.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+            }
+        });
 
 
 
