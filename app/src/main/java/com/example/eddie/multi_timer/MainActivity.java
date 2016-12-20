@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
@@ -22,8 +23,10 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button btnStart, btnStop;
-    TextView textViewTime;
+    Button btnStart, btnStop, btnStart2, btnStop2;
+    TextView textViewTime, textViewTime2;
+    NumberPicker hours, mins, secs;
+    SecondsTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +40,61 @@ public class MainActivity extends AppCompatActivity {
         btnStop = (Button) findViewById(R.id.btnStop);
         textViewTime = (TextView) findViewById(R.id.textViewTime);
 
-        textViewTime.setText("00:03:00");
+        textViewTime.setText("00:00:00");
 
-        final CounterClass timer = new CounterClass(180000, 1000);
+        hours = (NumberPicker) findViewById(R.id.hourscroll);
+        mins = (NumberPicker) findViewById(R.id.minsscroll);
+        secs = (NumberPicker) findViewById(R.id.secscroll);
+
+        /*String[] dispHrs = {"00","01","02","03"};
+        String[] dispMins = new String[60];
+        String[] dispSecs = new String[60];
+        for (int i = 0; i < 60; i++) {
+            if (i < 10) {
+                dispMins[i] = "0" + i;
+                dispSecs[i] = "0" + i;
+            }
+            else {
+                dispMins[i] = Integer.toString(i);
+                dispSecs[i] = Integer.toString(i);
+            }
+        }
+
+        hours.setDisplayedValues(dispHrs);
+        mins.setDisplayedValues(dispMins);
+        secs.setDisplayedValues(dispSecs); */
+
+        hours.setMinValue(0);
+        hours.setMaxValue(10);
+        mins.setMinValue(0);
+        mins.setMaxValue(59);
+        secs.setMinValue(0);
+        secs.setMaxValue(59);
+
+        hours.setWrapSelectorWheel(true);
+        mins.setWrapSelectorWheel(true);
+        secs.setWrapSelectorWheel(true);
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int timeInSecs = hours.getValue() * 3600 + mins.getValue() * 60 + secs.getValue();
+                timer = new SecondsTimer(timeInSecs, 1, textViewTime);
+                timer.start();
+            }
+        });
+        btnStop.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+            }
+        });
+
+
+
+        /*final CounterClass timer = new CounterClass(180000, 1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -54,7 +109,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 timer.cancel();
             }
-        });
+        }); */
+
+        /*Evan's code starts here
+
+        btnStart2 = (Button) findViewById(R.id.btnStart2);
+        btnStop2 = (Button) findViewById(R.id.btnStop2);
+        textViewTime2 = (TextView) findViewById(R.id.textViewTime2);
+
+        textViewTime2.setText("00:03:00");
+
+        final SecondsTimer timer2 = new SecondsTimer (180, 1, textViewTime2, btnStart2, btnStop2);
+
+        //End myCode */
+
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
