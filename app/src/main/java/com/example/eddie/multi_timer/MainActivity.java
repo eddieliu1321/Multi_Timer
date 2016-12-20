@@ -22,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button btnStart, btnStop;
-    TextView textViewTime;
+    Button btnStart, btnStop, btnStart2, btnStop2;
+    TextView textViewTime, textViewTime2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
                 timer.cancel();
             }
         });
+
+        //Evan's code starts here
+
+        btnStart2 = (Button) findViewById(R.id.btnStart2);
+        btnStop2 = (Button) findViewById(R.id.btnStop2);
+        textViewTime2 = (TextView) findViewById(R.id.textViewTime2);
+
+        textViewTime2.setText("00:03:00");
+
+        final SecondsTimer timer2 = new SecondsTimer (180, 1, textViewTime2, btnStart2, btnStop2);
+
+        //End myCode
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
