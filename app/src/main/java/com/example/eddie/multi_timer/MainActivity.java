@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
@@ -37,9 +38,44 @@ public class MainActivity extends AppCompatActivity {
         btnStop = (Button) findViewById(R.id.btnStop);
         textViewTime = (TextView) findViewById(R.id.textViewTime);
 
-        textViewTime.setText("00:03:00");
+        textViewTime.setText("00:00:00");
 
-        final CounterClass timer = new CounterClass(180000, 1000);
+        NumberPicker hours = (NumberPicker) findViewById(R.id.hourscroll);
+        NumberPicker mins = (NumberPicker) findViewById(R.id.minsscroll);
+        NumberPicker secs = (NumberPicker) findViewById(R.id.secscroll);
+
+        /*String[] dispHrs = {"00","01","02","03"};
+        String[] dispMins = new String[60];
+        String[] dispSecs = new String[60];
+        for (int i = 0; i < 60; i++) {
+            if (i < 10) {
+                dispMins[i] = "0" + i;
+                dispSecs[i] = "0" + i;
+            }
+            else {
+                dispMins[i] = Integer.toString(i);
+                dispSecs[i] = Integer.toString(i);
+            }
+        }
+
+        hours.setDisplayedValues(dispHrs);
+        mins.setDisplayedValues(dispMins);
+        secs.setDisplayedValues(dispSecs); */
+
+        hours.setMinValue(0);
+        hours.setMaxValue(10);
+        mins.setMinValue(0);
+        mins.setMaxValue(59);
+        secs.setMinValue(0);
+        secs.setMaxValue(59);
+
+        hours.setWrapSelectorWheel(true);
+        mins.setWrapSelectorWheel(true);
+        secs.setWrapSelectorWheel(true);
+
+
+
+        /*final CounterClass timer = new CounterClass(180000, 1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -54,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 timer.cancel();
             }
-        });
+        }); */
 
-        //Evan's code starts here
+        /*Evan's code starts here
 
         btnStart2 = (Button) findViewById(R.id.btnStart2);
         btnStop2 = (Button) findViewById(R.id.btnStop2);
@@ -66,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
         final SecondsTimer timer2 = new SecondsTimer (180, 1, textViewTime2, btnStart2, btnStop2);
 
-        //End myCode
+        //End myCode */
+
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
