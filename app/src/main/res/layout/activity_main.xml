@@ -21,37 +21,15 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/textViewTime"
+    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnStop"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="140dp"
-        android:textSize="25sp"
-        />
+        android:id="@+id/addTimer"
+        android:clickable="true"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_plus_white_24dp"
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="200dp"
-        android:text="Stop"
-        />
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="100dp"
-        android:text="Start"
         />
     <!--Second buttons-->
     <!--android.support.v7.widget.AppCompatTextView

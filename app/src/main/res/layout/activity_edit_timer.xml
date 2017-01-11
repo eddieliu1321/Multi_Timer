@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_timer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.example.eddie.multi_timer.EditTimer">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Tap here to edit your timer's name"
+        android:ems="10"
+        android:id="@+id/renameTimer1"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="#bab8b8"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <android.widget.NumberPicker
+            android:id = "@+id/hourscroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewColon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text=":"
+            />
+
+        <android.widget.NumberPicker
+            android:id = "@+id/minsscroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewColon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text=":"
+            />
+
+        <android.widget.NumberPicker
+            android:id = "@+id/secscroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+        <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="#ff008d"
+            android:layout_gravity="left"/>
+
+        <Button
+            android:text="Save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSave"
+            android:onClick="switchMainActivity"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="#ff008d"
+            android:layout_gravity="right"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Quick Timers"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/presetOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 min"
+                style="?android:attr/borderlessButtonStyle"
+                />
+            <Button
+                android:id="@+id/presetFive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 min"
+                style="?android:attr/borderlessButtonStyle"
+                />
+            <Button
+                android:id="@+id/presetTen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 min"
+                style="?android:attr/borderlessButtonStyle"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="100dp">
+
+            <Button
+                android:id="@+id/presetFifteen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 min"
+                style="?android:attr/borderlessButtonStyle"
+                />
+            <Button
+                android:id="@+id/presetThirty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30 min"
+                style="?android:attr/borderlessButtonStyle"
+                />
+            <Button
+                android:id="@+id/presetSixty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 hour"
+                style="?android:attr/borderlessButtonStyle"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
